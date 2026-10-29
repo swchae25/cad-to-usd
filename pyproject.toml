@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cad-to-usd"
+version = "0.1.0"
+description = "Extract the saved display mesh from SOLIDWORKS parts and export OBJ / USD assets for simulation"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Seung Wook Chae" }]
+dependencies = ["numpy>=1.24", "pillow>=10"]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+usd = ["usd-core>=24.0"]
+
+[project.scripts]
+cad-to-usd = "cad_to_usd.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
